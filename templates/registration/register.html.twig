@@ -3,21 +3,53 @@
 {% block title %}S'inscrire{% endblock %}
 
 {% block body %}
-    <h1>Inscription</h1>
+<section class="vh-100 bg-light text-lg-start">
+    <div class="mb-3">
+      <div class="row g-0 d-flex align-items-center">
+        <div class="col-lg-4 d-none d-lg-flex">
+          <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" alt="Trendy Pants and Shoes"
+            class="w-100 h-auto rounded-4 shadow-4" />
+        </div>
+        <div class="col-lg-8">
+            <div class="card-body py-5 px-md-5">
+                <h1>Inscription</h1>
+                
+                {{ form_start(registrationForm, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+                {{ form_errors(registrationForm) }}
+                
 
-    {{ form_errors(registrationForm) }}
+                    <div class="form-group my-4">
+                        {{ form_label(registrationForm.email, 'Email:', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control', 'placeholder': 'Entrez votre adresse email'}}) }}
+                        {{ form_errors(registrationForm.email) }}
+                    </div>
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
+                    <div class="form-group my-4">
+                        {{ form_label(registrationForm.firstName, 'Prénom:', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(registrationForm.firstName, {'attr': {'class': 'form-control', 'placeholder': 'Entrez votre prénom'}}) }}
+                        {{ form_errors(registrationForm.firstName) }}
+                    </div>
 
-        {{ form_row(registrationForm.firstName) }}
-        {{ form_row(registrationForm.lastName) }}
+                    <div class="form-group my-4">
+                        {{ form_label(registrationForm.lastName, 'Nom:', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(registrationForm.lastName, {'attr': {'class': 'form-control', 'placeholder': 'Entrez votre nom'}}) }}
+                        {{ form_errors(registrationForm.lastName) }}
+                    </div>
 
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+                    <div class="form-group my-4">
+                        {{ form_label(registrationForm.plainPassword, 'Mot de passe:', {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control', 'placeholder': 'Entrez votre mot de passe'}}) }}
+                        {{ form_errors(registrationForm.plainPassword) }}
+                    </div>
+                    <div class="form-group my-4">
+                        {{ form_row(registrationForm.agreeTerms, {'attr': {'class': 'hidden'}}) }}
+                    </div>
 
-        <button type="submit" class="btn btn-lg btn-primary">Inscription</button>
-    {{ form_end(registrationForm) }}
+                    <button type="submit" class="btn btn-lg btn-primary">Inscription</button>
+                {{ form_end(registrationForm) }}
+            </div>
+        </div>
+     </div>
+    </div>
+</section>
 {% endblock %}
